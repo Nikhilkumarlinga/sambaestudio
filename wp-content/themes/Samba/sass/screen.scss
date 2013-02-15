@@ -34,6 +34,7 @@ div {}
 hr {}
 img {
 	max-width: 100%;
+	height: auto;
 	margin-bottom: $base-line-height*1.5;
 	margin-top: $base-line-height*1.5;
 
@@ -501,7 +502,7 @@ article{
 
 		@media screen and (max-width: 639px){
 			@include mobile-version;
-			
+
 			p, h1, h2, h3, h4, h5, h6, blockquote{
 				width: 70%;
 			}
@@ -637,7 +638,7 @@ a.social{
 
 		ul{
 			margin-top: $base-line-height/2;
-						
+
 			a{
 				color: $menu-color;
 			}
