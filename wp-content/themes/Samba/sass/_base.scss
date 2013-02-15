@@ -1,0 +1,167 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/layout/grid-background";
+@import "compass/utilities/general";
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+
+/*PLUGINS*/
+@import "jquery.fancybox.css";
+
+/*SPRITES*/
+$sprites-layout:diagonal;
+@import "sprites/*.png";
+
+/*OVERRIDE DEFAULT VARIABLES*/
+$default-transition-duration: .5s;
+$base-font-size: 12px;
+$base-line-height: 16px;
+
+/*MY VARIABLES*/
+$body-color: #fff;
+$font-color: #9c9c9c;
+$menu-color: lighten($font-color, 20%);
+$bg-menu-color: lighten($menu-color, 16%);
+$dropmenu-color: #EDF8EF;
+$link-color: #000;
+$vibrant-color: lighten(red, 20%);
+$special-link-color: #156c8d;
+$menu-padding: 15px 10px;
+
+@font-face {
+  font-family: 'MysteryQuest';
+  src: url('../fonts/mysteryquest-regular-webfont.eot');
+  src: url('../fonts/mysteryquest-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/mysteryquest-regular-webfont.woff') format('woff'),
+       url('../fonts/mysteryquest-regular-webfont.ttf') format('truetype'),
+       url('../fonts/mysteryquest-regular-webfont.svg#MysteryQuestRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*MY MIXINS*/
+@mixin pseudo-content {
+	position: relative;
+
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+	}
+}
+
+@mixin put-quotes($size: $base-font-size) {
+	@include pseudo-content;
+	
+	quotes:"\201C""\201D";
+	text-indent: $size*1.2;
+	
+	&:after{
+		content: open-quote;
+		font-size: $size*4;
+		font-family: 'MysteryQuest', "Franklin Gothic Demi Cond", Georgia;
+		font-weight: normal;
+		color: $link-color;
+		top: $size*1.2;
+		left: -$size*1.2;
+	}
+}
+
+@mixin mobile-version{
+	width: 100%;
+	margin: 0 auto;	
+	position: relative;
+	@include clearfix;
+	left: auto;
+	bottom: auto;
+	top: auto;
+	right: auto;
+}
+
+@mixin mobile-divider{
+	@media screen and (max-width: 639px){
+		border-top: 2px dashed lighten($font-color, 30%);
+		padding-top: $base-line-height;
+	}
+}
+
+/*MEDIA QUERIES MIXINS*/
+
+@mixin hide-mobile{
+	display: none;
+	@media screen and (min-width: 640px){
+		display: block;
+	}
+}
+
+@mixin show-mobile{
+	display: block;
+	@media screen and (min-width: 640px){
+		display: none;
+	}
+}
+
+@mixin hide-tablet{
+	display: block;
+	@media screen and (min-width: 640px) and (max-width: 980px){
+		display: none;
+	}
+}
+
+@mixin show-tablet{
+	display: none;
+	@media screen and (min-width: 640px) and (max-width: 980px){
+		display: block;
+	}
+}
+
+@mixin hide-desktop{
+	display: block;
+	@media screen and (min-width: 981px){
+		display: none;
+	}
+}
+
+@mixin show-desktop{
+	display: none;
+	@media screen and (min-width: 981px){
+		display: block;
+	}
+}
+
+/*DARK*/
+/*$body-color: #222;
+$font-color: #9c9c9c;
+$menu-color: darken($font-color, 40%);
+$bg-menu-color: darken($menu-color, 70%);
+$link-color: #fff;
+$vibrant-color: #156c8d;
+$special-link-color: lighten(red, 20%);*/
+
+/*BRASIL*/
+/*$body-color: #2F4523;
+$font-color: #fff;
+$menu-color: #A6C265;
+$bg-menu-color: #57733B;
+$link-color: #FFEA61;
+$vibrant-color: #445087;
+$special-link-color: auto;*/
+
+/*GREMIO*/
+/*$body-color: #1D5C87;
+$font-color: #fff;
+$menu-color: #79DCF2;
+$bg-menu-color: #4099DB;
+$link-color: #1D160E;
+$vibrant-color: #FFFBFF;
+$special-link-color: auto;*/
+
+/*INTER*/
+/*$body-color: #591D1D;
+$font-color: #F2F2F2;
+$menu-color: #8D2320;
+$bg-menu-color: #fff;
+$link-color: #F2B705;
+$vibrant-color: #D91E1E;
+$special-link-color: auto;*/
